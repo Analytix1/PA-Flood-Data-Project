@@ -37,6 +37,7 @@ library(tidyverse)
 library(yardstick)
 library(broom)
 library(pROC)
+library(ggfortify)
 
 fludd <- read.csv("paflooddata.csv")
 
@@ -62,7 +63,7 @@ fludd <- fludd |>
 ```
 
 ```{r fuckery, message = F, warning = F}
-cor()
+#cor(as.factor(fludd))
 
 
 
@@ -72,12 +73,13 @@ cor()
 ```{r bridge_lm, message = F, warning = F}
 
 
-bridge_lm <- lm(ScoCritVar ~ county + recon_yr + 
-                  umbreon + dk_surf + 
+bridge_lm <- lm(ScoCritVar ~ recon_yr + dk_surf + 
                   POPVar + HURVar + 
                   FLEVVar + DDVar, 
                 data = fludd)
 summary(bridge_lm)
+
+autoplot(bridge_lm)
 ```
 
 # Discussion
