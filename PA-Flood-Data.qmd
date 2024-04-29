@@ -46,13 +46,22 @@ view(fludd)
 
 # Results
 
+```{r factory, message = F, warning = F}
+
+
+
+
+
+
+```
+
 ```{r bridge_lm, message = F, warning = F}
 
 
-bridge_lm <- lm(SCOURCRIT ~ LOCATION + YEARBUILT + 
-                  YEARRECON + POP + HUR + FLEV + DD, 
+bridge_lm <- lm(ScoCritVar ~ LOCATION + YEARBUILT + 
+                  YEARRECON + POPVar + HURVar + FLEVVar + DDVar, 
                 data = fludd)
-
+summary(bridge_lm)
 ```
 
 # Discussion
