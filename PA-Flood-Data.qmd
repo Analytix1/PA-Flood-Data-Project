@@ -75,9 +75,14 @@ fludd <- fludd |>
 
 bridge_lm <- lm(ScoCritVar ~ recon_yr + dk_surf + 
                   POPVar + HURVar + 
-                  FLEVVar + DDVar, 
+                  FLEVVar + DDVar + (POPVar*DDVar), 
                 data = fludd)
 summary(bridge_lm)
+
+```
+
+```{r}
+
 
 autoplot(bridge_lm)
 ```
