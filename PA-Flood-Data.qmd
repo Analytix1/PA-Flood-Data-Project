@@ -1,0 +1,58 @@
+---
+title: "Observations on Pennsylvania Flood Data"
+author: "Ajani Adovor"
+format: pdf
+editor: visual
+---
+
+# Introduction
+
+Pennsylvania's topography makes many areas in the state prone to flooding. While there are measures in place to deal with flood events, their implementation varies, and different areas face different problems when major weather events occur. The goal of this research is to answer the question, "How Do Severe Flood Events Affect Infrastructure and Populations in Pennsylvania?"
+
+## Data
+
+The dataset for this research comes from the United States Geological Survey and FEMA's flood data release for Pennsylvania. The data can be found here: Flood Data Collection in Pennsylvania -- Site Selection Data for the Development of a Rapid Deployment Network \| U.S. Geological Survey (usgs.gov)
+
+# Methodology
+
+Infrastructure Analysis
+
+Population Analysis
+
+Method Notes
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+```{r}
+library(tidyverse)
+library(yardstick)
+library(broom)
+library(pROC)
+
+fludd <- read.csv("paflooddata.csv")
+
+glimpse(fludd)
+view(fludd)
+```
+
+# Results
+
+```{r bridge_lm, message = F, warning = F}
+
+
+bridge_lm <- lm(SCOURCRIT ~ LOCATION + YEARBUILT + 
+                  YEARRECON + POP + HUR + FLEV + DD, 
+                data = fludd)
+
+```
+
+# Discussion
