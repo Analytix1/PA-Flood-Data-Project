@@ -48,7 +48,21 @@ view(fludd)
 
 ```{r factory, message = F, warning = F}
 
+fludd <- fludd |>
+  mutate(build_yr = as.factor(fludd$YEARBUILT),
+  recon_yr = as.factor(fludd$YEARRECON),
+  onbridge_service = as.factor(fludd$SERVTYPON),
+  umbreon = as.factor(fludd$SERVTYPUND),
+  dk_surf = as.factor(fludd$DKSURFTYPE),
+  county = as.factor(fludd$COUNTY_NAM),
+  watershed_id = as.factor(fludd$HUC8))
+  
 
+
+```
+
+```{r fuckery, message = F, warning = F}
+cor()
 
 
 
@@ -58,8 +72,10 @@ view(fludd)
 ```{r bridge_lm, message = F, warning = F}
 
 
-bridge_lm <- lm(ScoCritVar ~ LOCATION + YEARBUILT + 
-                  YEARRECON + POPVar + HURVar + FLEVVar + DDVar, 
+bridge_lm <- lm(ScoCritVar ~ county + recon_yr + 
+                  umbreon + dk_surf + 
+                  POPVar + HURVar + 
+                  FLEVVar + DDVar, 
                 data = fludd)
 summary(bridge_lm)
 ```
