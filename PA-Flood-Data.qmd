@@ -17,60 +17,52 @@ The following are key variables being used from the data set. Please note that v
 
 ### Control Variables:
 
-**YEARCON:** The year in which a bridge was reconstructed (relabeled in this analysis as recon_yr)
+##### **YEARCON:** The year in which a bridge was reconstructed (relabeled in this analysis as recon_yr)
 
-**DKSURFTYPE:** The surface type of the bridge deck (relabeled in this analysis as dk_surf)
+##### **DKSURFTYPE:** The surface type of the bridge deck (relabeled in this analysis as dk_surf)
 
-**COUNTY_NAM:** the name of the county in which the data point was recorded (relabeled in this analysis as county)
+##### **COUNTY_NAM:** the name of the county in which the data point was recorded (relabeled in this analysis as county)
 
-**POPVar:** The mean population count within a 1 km radius of the location
+##### **POPVar:** The mean population count within a 1 km radius of the location
 
-**HURVar:** Hurricane track density in kilometers per square kilometers
+##### **HURVar:** Hurricane track density in kilometers per square kilometers
 
-**FLEVVar:** Distance to the nearest point in the historical flood event data collection site data set in meters
+##### **FLEVVar:** Distance to the nearest point in the historical flood event data collection site data set in meters
 
-**DDVar:** Number of disaster declarations per 1000 square kilometers
+##### **DDVar:** Number of disaster declarations per 1000 square kilometers
 
-**CLAVar:** Number of flood-related insurance claims per square kilometer
+##### **CLAVar:** Number of flood-related insurance claims per square kilometer
 
-**INDAVar:** Number of flood-related individual assistance applications per square kilometer
+##### **INDAVar:** Number of flood-related individual assistance applications per square kilometer
 
-**REPLVar:** Number of flood-related repetitive loss records per square kilometer
+##### **REPLVar:** Number of flood-related repetitive loss records per square kilometer
 
 ### Response Variables
 
-**ScoCritVar:** Scour critical bridge indicator.
+##### **ScoCritVar:** Scour critical bridge indicator SCOURCRIT variable reclassified (1 = SCOURCRIT values of '0', '1', '2', or '3'; 0 = all other SCOURCRIT values)
 
-[SCBI Guide](https://www.dot.state.pa.us/public/BUREAUS/design/Scour-Calculator-Manual.pdf)
+##### [SCBI Guide](https://www.dot.state.pa.us/public/BUREAUS/design/Scour-Calculator-Manual.pdf)
 
-The Scour Critical Bridge Indicator (SCBI) Code and Scour Assessment Rating (SAR) calculator developed by the Pennsylvania Department of Transportation (PennDOT) and the U.S. Geological Survey to identify Pennsylvania bridges with excessive scour conditions or a high potential for scour.
+##### The Scour Critical Bridge Indicator (SCBI) Code and Scour Assessment Rating (SAR) calculator developed by the Pennsylvania Department of Transportation (PennDOT) and the U.S. Geological Survey to identify Pennsylvania bridges with excessive scour conditions or a high potential for scour.
 
-Scour: *Bridge scour is the removal of sediment such as sand and gravel from around bridge abutments or piers. Hydrodynamic scour, caused by fast flowing water, can carve out scour holes, compromising the integrity of a structure. In the United States, bridge scour is one of the three main causes of bridge failure.* [Scour Definition](https://en.wikipedia.org/wiki/Bridge_scour)
+##### Scour: *Bridge scour is the removal of sediment such as sand and gravel from around bridge abutments or piers. Hydrodynamic scour, caused by fast flowing water, can carve out scour holes, compromising the integrity of a structure. In the United States, bridge scour is one of the three main causes of bridge failure.* [Scour Definition](https://en.wikipedia.org/wiki/Bridge_scour)
 
-Use of the calculator will enable PennDOT bridge personnel to quickly calculate these scour indices if site conditions change, new bridges are constructed, or new information needs to be included.
+##### Use of the calculator will enable PennDOT bridge personnel to quickly calculate these scour indices if site conditions change, new bridges are constructed, or new information needs to be included.
 
-**SVIVar:** Social Vulnerability Index
+##### **SVIVar:** Social Vulnerability Index measures the potential negative effects on communities caused by external stresses on human health. Such stresses include natural or human-caused disasters, or disease outbreaks. Reducing social vulnerability can decrease both human suffering and economic loss. [SVI](https://www.atsdr.cdc.gov/placeandhealth/svi/index.html)
 
 # Methodology
 
-Infrastructure Analysis
+Bridge Infrastructure Analysis: The ideal way to determine infrastructural damage is by using an official government metric. Given the existence of the Scour Critical Bridge Indicator, this makes defining potential infrastructural damage straightforward. Thus, in terms of infrastructure, SCBI will be the response variable.
+
+Because the
 
 Population Analysis
 
-Method Notes
-
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+Analysis Method Notes: Talk about pain here.
 
 ```{r}
-#| echo: false
-2 * 2
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).
-
-```{r}
+echo: false
 library(tidyverse)
 library(yardstick)
 library(broom)
@@ -84,6 +76,7 @@ view(fludd)
 # Results
 
 ```{r factory, message = F, warning = F}
+echo: false
 
 fludd <- fludd |>
   mutate(build_yr = as.factor(fludd$YEARBUILT),
@@ -99,6 +92,7 @@ fludd <- fludd |>
 ```
 
 ```{r fuckery, message = F, warning = F}
+echo: FALSE
 #cor(as.factor(fludd))
 
 
@@ -106,8 +100,9 @@ fludd <- fludd |>
 
 ```
 
-```{r bridge_lm, message = F, warning = F}
+```{r bridge_logit, message = F, warning = F}
 
+echo: FALSE
 
 bridge_logit <- glm(ScoCritVar ~ recon_yr + dk_surf + 
                   POPVar + HURVar + 
