@@ -11,7 +11,7 @@ Pennsylvania's topography makes many areas in the state prone to flooding. While
 
 ## Data
 
-The data set for this research comes from the United States Geological Survey and FEMA's flood data release for Pennsylvania. The data can be found here: [Flood Data Collection in Pennsylvania](Flood Data Collection in Pennsylvania – Site Selection Data for the Development of a Rapid Deployment Network | U.S. Geological Survey (usgs.gov)
+The data set for this research comes from the United States Geological Survey and FEMA's flood data release for Pennsylvania. The data can be found here: [Flood Data in Pennsylvania](https://www.usgs.gov/data/flood-data-collection-pennsylvania-site-selection-data-development-a-rapid-deployment-network)
 
 The following are key variables being used from the data set. Please note that variables having "Var" in the name have been normalized (by dividing the initial variable by its maximum value) in the data set already so that they are easier to work with:
 
@@ -41,7 +41,7 @@ The following are key variables being used from the data set. Please note that v
 
 **ScoCritVar:** Scour critical bridge indicator.
 
-[SCBI Guide](Scour-Calculator-Manual.pdf (state.pa.us)
+[SCBI Guide](https://www.dot.state.pa.us/public/BUREAUS/design/Scour-Calculator-Manual.pdf)
 
 The Scour Critical Bridge Indicator (SCBI) Code and Scour Assessment Rating (SAR) calculator developed by the Pennsylvania Department of Transportation (PennDOT) and the U.S. Geological Survey to identify Pennsylvania bridges with excessive scour conditions or a high potential for scour.
 

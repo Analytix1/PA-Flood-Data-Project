@@ -1,0 +1,139 @@
+---
+title: "Observations on Pennsylvania Flood Data"
+author: "Ajani Adovor"
+format: pdf
+editor: visual
+---
+
+
+# Introduction
+
+Pennsylvania's topography makes many areas in the state prone to flooding. While there are measures in place to deal with flood events, their implementation varies, and areas face damages with differing levels of severity when major weather events occur. The goal of this research is to answer the question, "How Do Severe Flood Events Affect Certain Infrastructure and Populations in Pennsylvania?" This is a broad question that is not necessarliy qualifiable in all aspects. In order to answer this question specifically, a statistical analysis of Pennsylvania flood data will highlight key predictors that affect both bridges, critical pieces of Pennsylvania infrastructure, and populations within the state. An ideal answer to this question would highlight the association between certain variables and damages so that government officials can invest in safety measures in areas more prone to feel the damage of flooding. Given greater fluctuations in weather intensity due to climate change (include extra EDA here), identifying vulnerable infrastructure and populations is critical in order to prepare for catastrophic flooding events.
+
+## Data
+
+The data set for this research comes from the United States Geological Survey and FEMA's flood data release for Pennsylvania. The data can be found here: [Flood Data in Pennsylvania](https://www.usgs.gov/data/flood-data-collection-pennsylvania-site-selection-data-development-a-rapid-deployment-network)
+
+The following are key variables being used from the data set. Please note that variables having "Var" in the name have been normalized (by dividing the initial variable by its maximum value) in the data set already so that they are easier to work with:
+
+### Control Variables:
+
+**YEARCON:** The year in which a bridge was reconstructed (relabeled in this analysis as recon_yr)
+
+**DKSURFTYPE:** The surface type of the bridge deck (relabeled in this analysis as dk_surf)
+
+**COUNTY_NAM:** the name of the county in which the data point was recorded (relabeled in this analysis as county)
+
+**POPVar:** The mean population count within a 1 km radius of the location
+
+**HURVar:** Hurricane track density in kilometers per square kilometers
+
+**FLEVVar:** Distance to the nearest point in the historical flood event data collection site data set in meters
+
+**DDVar:** Number of disaster declarations per 1000 square kilometers
+
+**CLAVar:** Number of flood-related insurance claims per square kilometer
+
+**INDAVar:** Number of flood-related individual assistance applications per square kilometer
+
+**REPLVar:** Number of flood-related repetitive loss records per square kilometer
+
+### Response Variables
+
+**ScoCritVar:** Scour critical bridge indicator.
+
+[SCBI Guide](https://www.dot.state.pa.us/public/BUREAUS/design/Scour-Calculator-Manual.pdf)
+
+The Scour Critical Bridge Indicator (SCBI) Code and Scour Assessment Rating (SAR) calculator developed by the Pennsylvania Department of Transportation (PennDOT) and the U.S. Geological Survey to identify Pennsylvania bridges with excessive scour conditions or a high potential for scour.
+
+Scour: *Bridge scour is the removal of sediment such as sand and gravel from around bridge abutments or piers. Hydrodynamic scour, caused by fast flowing water, can carve out scour holes, compromising the integrity of a structure. In the United States, bridge scour is one of the three main causes of bridge failure.* [Scour Definition](https://en.wikipedia.org/wiki/Bridge_scour)
+
+Use of the calculator will enable PennDOT bridge personnel to quickly calculate these scour indices if site conditions change, new bridges are constructed, or new information needs to be included.
+
+**SVIVar:** Social Vulnerability Index
+
+# Methodology
+
+Infrastructure Analysis
+
+Population Analysis
+
+Method Notes
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+
+```{r}
+library(tidyverse)
+library(yardstick)
+library(broom)
+library(pROC)
+library(ggfortify)
+
+fludd <- read.csv("paflooddata.csv")
+view(fludd)
+```
+
+
+# Results
+
+
+```{r factory, message = F, warning = F}
+
+fludd <- fludd |>
+  mutate(build_yr = as.factor(fludd$YEARBUILT),
+  recon_yr = as.factor(fludd$YEARRECON),
+  onbridge_service = as.factor(fludd$SERVTYPON),
+  umbreon = as.factor(fludd$SERVTYPUND),
+  dk_surf = as.factor(fludd$DKSURFTYPE),
+  county = as.factor(fludd$COUNTY_NAM),
+  watershed_id = as.factor(fludd$HUC8))
+  
+
+
+```
+
+```{r fuckery, message = F, warning = F}
+#cor(as.factor(fludd))
+
+
+
+
+```
+
+```{r bridge_lm, message = F, warning = F}
+
+
+bridge_logit <- glm(ScoCritVar ~ recon_yr + dk_surf + 
+                  POPVar + HURVar + 
+                  FLEVVar + DDVar + (POPVar*DDVar), 
+                data = fludd,
+                family = "binomial")
+summary(bridge_logit)
+
+```
+
+```{r}
+vul_lm <- lm(SVIVar ~ county + HURVar + POPVar + 
+               FLEVVar + 
+               CLAVar + INDAVar + REPLVar,
+             data = fludd)
+
+summary(vul_lm)
+autoplot(vul_lm)
+```
+
+
+# Discussion
+
