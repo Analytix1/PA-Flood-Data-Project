@@ -63,6 +63,7 @@ Analysis Method Notes: Talk about pain here.
 
 ```{r dp_load, message = F, warning = F, echo = F}
 library(knitr)
+library(kableExtra)
 library(tidyverse)
 library(yardstick)
 library(broom)
@@ -70,7 +71,7 @@ library(pROC)
 library(ggfortify)
 
 fludd <- read.csv("paflooddata.csv")
-view(fludd)
+
 ```
 
 # Results
@@ -125,7 +126,7 @@ results_bridge$Significance <- ifelse(results_bridge$p_value < 0.05, "*", "")
 # Create the table
 kable(results_bridge, align = "c", caption = "Logistic Regression Results (Bridge Data)", format = "html") %>%
   kable_styling(full_width = FALSE)
-
+ 
 ```
 
 ```{r svi_lm, message = F, warning = F, echo = F}
