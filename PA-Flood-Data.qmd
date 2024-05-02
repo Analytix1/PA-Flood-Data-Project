@@ -73,18 +73,23 @@ fludd <- fludd |>
 ```{r bridge_lm, message = F, warning = F}
 
 
-bridge_lm <- lm(ScoCritVar ~ recon_yr + dk_surf + 
+bridge_logit <- glm(ScoCritVar ~ recon_yr + dk_surf + 
                   POPVar + HURVar + 
                   FLEVVar + DDVar + (POPVar*DDVar), 
-                data = fludd)
-summary(bridge_lm)
+                data = fludd,
+                family = "binomial")
+summary(bridge_logit)
 
 ```
 
 ```{r}
+vul_lm <- lm(SVIVar ~ county + HURVar + POPVar + 
+               FLEVVar + 
+               CLAVar + INDAVar + REPLVar,
+             data = fludd)
 
-
-autoplot(bridge_lm)
+summary(vul_lm)
+autoplot(vul_lm)
 ```
 
 # Discussion
