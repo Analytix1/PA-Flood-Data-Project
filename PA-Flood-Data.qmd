@@ -61,8 +61,8 @@ Population Analysis
 
 Analysis Method Notes: Talk about pain here.
 
-```{r}
-echo: false
+```{r dp_load, message = F, warning = F, echo = F}
+library(knitr)
 library(tidyverse)
 library(yardstick)
 library(broom)
@@ -75,8 +75,8 @@ view(fludd)
 
 # Results
 
-```{r factory, message = F, warning = F}
-echo: false
+```{r factory, message = F, warning = F, echo = F}
+
 
 fludd <- fludd |>
   mutate(build_yr = as.factor(fludd$YEARBUILT),
@@ -91,8 +91,8 @@ fludd <- fludd |>
 
 ```
 
-```{r fuckery, message = F, warning = F}
-echo: FALSE
+```{r fuckery, message = F, warning = F, echo = F}
+
 #cor(as.factor(fludd))
 
 
@@ -100,26 +100,57 @@ echo: FALSE
 
 ```
 
-```{r bridge_logit, message = F, warning = F}
+```{r bridge_logit, message = F, warning = F, echo = F}
 
-echo: FALSE
+
 
 bridge_logit <- glm(ScoCritVar ~ recon_yr + dk_surf + 
                   POPVar + HURVar + 
                   FLEVVar + DDVar + (POPVar*DDVar), 
                 data = fludd,
                 family = "binomial")
-summary(bridge_logit)
+
+coefficients_bridge <- coef(bridge_logit)
+standard_errors_bridge <- summary(bridge_logit)$coef[, "Std. Error"]
+p_values_bridge <- summary(bridge_logit)$coef[, "Pr(>|z|)"]
+
+# Create a data frame for the table
+results_bridge <- data.frame(Coefficient = round(coefficients_bridge, 3),
+                             SE = round(standard_errors_bridge, 3),
+                             p_value = p_values_bridge)
+
+# Add significance stars
+results_bridge$Significance <- ifelse(results_bridge$p_value < 0.05, "*", "")
+
+# Create the table
+kable(results_bridge, align = "c", caption = "Logistic Regression Results (Bridge Data)", format = "html") %>%
+  kable_styling(full_width = FALSE)
 
 ```
 
-```{r}
+```{r svi_lm, message = F, warning = F, echo = F}
+
+
 vul_lm <- lm(SVIVar ~ county + HURVar + POPVar + 
                FLEVVar + 
                CLAVar + INDAVar + REPLVar,
              data = fludd)
+coefficients_vul <- coef(vul_lm)
+standard_errors_vul <- summary(vul_lm)$coef[, "Std. Error"]
+p_values_vul <- summary(vul_lm)$coef[, "Pr(>|t|)"]
 
-summary(vul_lm)
+# Create a data frame for the table
+results_vul <- data.frame(Coefficient = round(coefficients_vul, 3),
+                          SE = round(standard_errors_vul, 3),
+                          p_value = p_values_vul)
+
+# Add significance stars
+results_vul$Significance <- ifelse(results_vul$p_value < 0.05, "*", "")
+
+# Create the table
+kable(results_vul, align = "c", caption = "Linear Regression Results (Vulnerability Data)", format = "html") %>%
+  kable_styling(full_width = FALSE)
+
 autoplot(vul_lm)
 ```
 
