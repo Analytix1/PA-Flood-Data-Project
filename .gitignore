@@ -47,3 +47,67 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+################################################################################
+# Geospatial Data (prevent large files from entering Git)
+################################################################################
+
+# Common raster formats
+*.tif
+*.tiff
+*.img
+*.vrt
+
+# Common vector formats (shapefiles and related)
+*.shp
+*.shx
+*.dbf
+*.prj
+*.sbn
+*.sbx
+*.cpg
+
+# GeoPackage / GeoJSON / spatial tables
+*.gpkg
+*.geojson
+*.gdb
+*.sqlite
+
+# LiDAR and elevation formats
+*.las
+*.laz
+
+# NetCDF / Xarray
+*.nc
+*.nc4
+
+################################################################################
+# Jupyter Notebook and Python build artifacts
+################################################################################
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+.env
+.venv/
+env/
+venv/
+
+################################################################################
+# OS / Editor files
+################################################################################
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# VS Code settings
+.vscode/
