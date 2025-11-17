@@ -23,7 +23,7 @@ In 2021, rain from the remnants of Hurricane Ida caused the Schuylkill River to 
 ### Datasets (with links, if available)  
 - [**Rapid Deployment Network for Flooding in Pennsylvania**](https://www.usgs.gov/data/flood-data-collection-pennsylvania-site-selection-data-development-a-rapid-deployment-network)  
 - [**Flood Risk Database**](https://msc.fema.gov/portal/availabilitySearch?addcommunity=420757&communityName=PHILADELPHIA,%20CITY%20OF#searchresultsanchor)  
-- **OpenStreetMap:** `power=substation`
+- [**PA OSM Data via Geofabrik**](https://download.geofabrik.de/north-america/us/pennsylvania.html)
 
 ---
 
