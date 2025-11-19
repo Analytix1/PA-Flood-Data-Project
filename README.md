@@ -1,12 +1,8 @@
-# Flood Risk Analysis in Pennsylvania
-
-## Project Title  
-**Substation Flood Risk Mapping**
+# Substation Flood Risk Analysis in Pennsylvania
 
 ---
 
-### Name(s) of Individual or Team Members  
-**Ajani “AJ” Adovor**
+### Ajani “AJ” Adovor
 
 ---
 
