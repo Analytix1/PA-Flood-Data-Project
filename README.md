@@ -57,3 +57,4 @@ A **grid resilience metric** based on substation exposure to flood risk.
 - [Billy Penn: Ida flooding in Philadelphia](https://billypenn.com/2022/09/01/ida-flooding-philadelphia-vine-street-expressway-photos/)  
 - [WHYY: Hurricane Ida flooding and infrastructure](https://whyy.org/articles/hurricane-ida-flooding-vine-street-expressway-infrastructure/)  
 - [WHYY: Land use and climate change in Philly flood risk](https://whyy.org/articles/its-not-all-about-hurricane-ida-land-use-and-climate-change-drive-philly-flood-risk/)
+- [PECO moves transformer flooded during Ida to prepare for more extreme weather](https://whyy.org/articles/peco-moves-transformer-flooded-hurricane-ida-extreme-weather/)
