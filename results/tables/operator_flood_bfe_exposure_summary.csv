@@ -1,0 +1,63 @@
+operator_clean,total_substations,inside_sfha,touching_sfha_boundary,inside_or_touching_sfha,above_bfe,below_bfe,missing_or_unknown_bfe,above_bfe_and_inside_or_touching_sfha,below_bfe_and_inside_or_touching_sfha,pct_inside_or_touching_sfha,pct_below_bfe,pct_below_bfe_and_inside_or_touching_sfha
+Unknown / missing operator,1153,78,94,172,994,159,0,85,87,14.92,13.79,7.55
+PPL,410,34,13,47,375,35,0,36,11,11.46,8.54,2.68
+PECO,147,12,9,21,119,28,0,12,9,14.29,19.05,6.12
+Penelec,131,10,10,20,105,26,0,11,9,15.27,19.85,6.87
+Pennsylvania Electric Company,84,11,7,18,74,10,0,12,6,21.43,11.9,7.14
+Met-Ed,118,11,6,17,108,10,0,11,6,14.41,8.47,5.08
+West Penn Power,74,8,7,15,64,10,0,8,7,20.27,13.51,9.46
+Penn Power,29,1,3,4,25,4,0,1,3,13.79,13.79,10.34
+Amtrak,22,1,1,2,19,3,0,0,2,9.09,13.64,9.09
+Philadelphia Electric Company,2,1,1,2,1,1,0,1,1,100.0,50.0,50.0
+Duquesne Light,49,1,0,1,46,3,0,0,1,2.04,6.12,2.04
+Valley Rural Electric Cooperative,5,0,1,1,4,1,0,0,1,20.0,20.0,20.0
+Allegheny Energy,2,0,1,1,1,1,0,0,1,50.0,50.0,50.0
+UGI,8,1,0,1,7,1,0,1,0,12.5,12.5,0.0
+Claverack Rural Electric Cooperative,3,1,0,1,3,0,0,1,0,33.33,0.0,0.0
+Somerset Rural Electric Cooperative,3,0,1,1,3,0,0,1,0,33.33,0.0,0.0
+American Transmission Company,1,0,1,1,1,0,0,1,0,100.0,0.0,0.0
+Citizens Electric Company of Lewisburg,1,0,1,1,1,0,0,1,0,100.0,0.0,0.0
+Exelon Power,1,1,0,1,1,0,0,1,0,100.0,0.0,0.0
+REA,1,1,0,1,1,0,0,1,0,100.0,0.0,0.0
+Adams Electric Cooperative,4,0,0,0,3,1,0,0,0,0.0,25.0,0.0
+UGI Utilities,2,0,0,0,1,1,0,0,0,0.0,50.0,0.0
+West Penn Power Co,1,0,0,0,0,1,0,0,0,0.0,100.0,0.0
+FirstEnergy,21,0,0,0,21,0,0,0,0,0.0,0.0,0.0
+Metropolitan Edison,10,0,0,0,10,0,0,0,0,0.0,0.0,0.0
+Duquesne Light Company,4,0,0,0,4,0,0,0,0,0.0,0.0,0.0
+SEPTA,4,0,0,0,4,0,0,0,0,0.0,0.0,0.0
+First Energy Generation,3,0,0,0,3,0,0,0,0,0.0,0.0,0.0
+Tri County Rural Electric Cooperative,3,0,0,0,3,0,0,0,0,0.0,0.0,0.0
+APS,2,0,0,0,2,0,0,0,0,0.0,0.0,0.0
+Alleghany Energy,2,0,0,0,2,0,0,0,0,0.0,0.0,0.0
+Central Electric Cooperative,2,0,0,0,2,0,0,0,0,0.0,0.0,0.0
+MetEd,2,0,0,0,2,0,0,0,0,0.0,0.0,0.0
+"Adams Electric Cooperative, Inc.",1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Adams Electric Coopertive,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Allegheny Power,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+American Transmission Systems,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Central Electic CO-OP,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Delmarva Power,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Duquesne Light Co.,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Med-Ed,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Met Ed,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Mid-Atlantic Interstate Transmission,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Middletown Borough,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+NJ Transit,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+North East Cogeneration Facility,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Northwestern REC,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Orange & Rockland,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+PECO;SEPTA,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Penlec,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Pennelec,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Philadelphia Gas Works,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Port Authority of Allegheny County,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Spectra Energy,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Sullivan County Rural Electric Cooperative,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+"Texas Eastern Transmission, LP",1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+The Pennsylvania State University,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Tri County Rural Electric Cooperative/West Penn Power,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Tri-County Cooperative,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+UGI Corporation,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+US Steel,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0
+Valley Rural Electric Cooperative Inc,1,0,0,0,1,0,0,0,0,0.0,0.0,0.0

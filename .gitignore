@@ -1,0 +1,29 @@
+# --- Environment ---
+.env
+
+# --- Python / Jupyter ---
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# --- Geodata kept in OneDrive, not versioned ---
+*.gdb/
+*.gpkg
+*.tif
+*.tif.aux.xml
+*.lock
+
+# --- ArcGIS scratch / logs ---
+Index/
+GpMessages/
+ImportLog/
+cache/
+.backups/
+RasterFunctionTemplates/
+
+# --- OS / OneDrive cruft ---
+.DS_Store
+Thumbs.db
+desktop.ini
